@@ -14,7 +14,7 @@ global.botname = "XskyBew Simple v4"
 
 global.pairing_code = true 
 global.mess = {
-    owner: `🚫 *AKSES DITOLAK*\nFitur ini hanya bisa digunakan oleh *Owner Bot*.`,
+    owner: `LU SIAPA KONTOL`,
 }
 
 let file = require.resolve(__filename) 
