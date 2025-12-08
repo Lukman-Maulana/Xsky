@@ -70,7 +70,7 @@ console.log(chalk.cyan.bold(` ╭─────[ COMMAND NOTIFICATION ]`), chal
 switch (command) {
 case "tes":
 case "menu": {
-const teks = `
+  const teks = `
 ╭─〔 \`BOT INFO\` 〕
 │ • *Owner* : @${global.owner}
 │ • *Bot Name* : ${global.botname}
@@ -78,75 +78,78 @@ const teks = `
 │ • *Mode* : ${sock.public ? "Public" : "Self"}
 ╰─
 `;
-await sock.sendMessage(m.chat, {
-  footer: `© 2024 XskyBew`,
-  buttons: [
-  {
-    buttonId: `${prefix}owner`,
-    buttonText: { displayText: 'Contact Owner' },
-    type: 1
-  },
-  {
-    buttonId: 'action',
-    buttonText: { displayText: 'ini pesan interactiveMeta' },
-    type: 4,
-    nativeFlowInfo: {
-      name: 'single_select',
-      paramsJson: JSON.stringify({
-        title: 'Pencet Kids',
-        sections: [
-          {
-            title: 'Jangan di spam kontol',
-            highlight_label: 'Recommended',
-            rows: [
-              { 
-                title: 'Owner Menu', 
-                description: 'Only XskyBew',
-                id: `${prefix}menu-owner` 
-              },
-              { 
-                title: 'Download Menu', 
-                description: 'Downloader Sosmed',
-                id: `${prefix}menu-download`
-              },
-              { 
-                title: 'Search Menu', 
-                description: 'Searching Audio/Video',
-                id: `${prefix}menu-search`
-              },
-              { 
-                title: 'Tools Menu', 
-                description: 'Fitur Tambahan',
-                id: `${prefix}menu-tools`
+
+  await sock.sendMessage(m.chat, {
+    caption: teks,
+    image: { url: 'https://files.catbox.moe/f94etm.jpg' },
+    footer: `© 2024 XskyBew`,
+    headerType: 6,
+
+    buttons: [
+      {
+        buttonId: "contact_owner",
+        buttonText: { displayText: 'Contact Owner' },
+        type: 1
+      },
+      {
+        buttonId: 'flow_menu',
+        buttonText: { displayText: 'ini pesan interactiveMeta' },
+        type: 4,
+        nativeFlowInfo: {
+          name: 'single_select',
+          paramsJson: JSON.stringify({
+            title: 'Pencet Kids',
+            sections: [
+              {
+                title: 'Jangan di spam kontol',
+                highlight_label: 'Recommended',
+                rows: [
+                  { 
+                    title: 'Owner Menu', 
+                    description: 'Only XskyBew',
+                    id: "menu_owner"
+                  },
+                  { 
+                    title: 'Download Menu', 
+                    description: 'Downloader Sosmed',
+                    id: "menu_download"
+                  },
+                  { 
+                    title: 'Search Menu', 
+                    description: 'Searching Audio/Video',
+                    id: "menu_search"
+                  },
+                  { 
+                    title: 'Tools Menu', 
+                    description: 'Fitur Tambahan',
+                    id: "menu_tools"
+                  }
+                ]
               }
             ]
-          }
-        ]
-      })
-    }
-  }
-],
+          })
+        }
+      }
+    ],
 
-  image: { url: 'https://files.catbox.moe/f94etm.jpg' },
-  caption: teks,
-  headerType: 6,
-  contextInfo: {
-    forwardingScore: 99999,
-    isForwarded: true,
-    externalAdReply: {
-      title: "XskyBew — Bot Developer Advanced Engine",
-      body: "Project Gabut",
-      mediaUrl: "https://files.catbox.moe/pinp5c.jpg",
-      mediaType: 1,
-      thumbnailUrl: "https://files.catbox.moe/pinp5c.jpg",
-      renderLargerThumbnail: true,
-      showAdAttribution: true,
-      adReplyButtonText: "Open Preview",
-      sourceUrl: "t.me/XskyBew",
-      previewType: 2
+    contextInfo: {
+      forwardingScore: 99999,
+      isForwarded: true,
+      externalAdReply: {
+        title: "XskyBew — Bot Developer Advanced Engine",
+        body: "Project Gabut",
+        mediaUrl: "https://files.catbox.moe/pinp5c.jpg",
+        mediaType: 1,
+        thumbnailUrl: "https://files.catbox.moe/pinp5c.jpg",
+        renderLargerThumbnail: true,
+        showAdAttribution: true,
+        adReplyButtonText: "Open Preview",
+        sourceUrl: "t.me/XskyBew",
+        previewType: 2
+      }
     }
-  }
-}, { quoted: m });
+
+  }, { quoted: m });
 }
 break;
 //==================================/  
